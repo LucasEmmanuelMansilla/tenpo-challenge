@@ -1,6 +1,6 @@
 # Tenpo Challenge
 
-Este es un proyecto desarrollado con **Vite** y **React 19** que utiliza **TailwindCSS**, **React Query** y **React Router DOM** para la gestión del estado y el enrutamiento.
+Este es un proyecto desarrollado con **Vite** y **React 19** que utiliza **TailwindCSS**, **React Query**, **Zustand** y **React Router DOM** para la gestión del estado y el enrutamiento.
 
 ## Tecnologías utilizadas
 
@@ -10,6 +10,7 @@ Este es un proyecto desarrollado con **Vite** y **React 19** que utiliza **Tailw
 - [TailwindCSS](https://tailwindcss.com/) - Framework de utilidades CSS.
 - [Context API](https://react.dev/reference/react/useContext) - Para la gestión del estado global.
 - [TanStack React Query](https://tanstack.com/query/latest) - Para la gestión de datos asíncronos.
+- [Zustand](https://zustand-demo.pmnd.rs/) - Para la gestión del estado global.
 - [Axios](https://axios-http.com/) - Cliente HTTP para hacer solicitudes a API.
 - [Lucide React](https://lucide.dev/) - Librería de iconos.
 - [ESLint](https://eslint.org/) - Para la calidad y formato del código.
@@ -28,7 +29,7 @@ npm -v
 Clona el repositorio y accede al directorio del proyecto:
 
 ```sh
-git clone https://github.com/tu-usuario/tenpo-challenge.git
+git clone https://github.com/LucasEmmanuelMansilla/tenpo-challenge.git
 cd tenpo-challenge
 ```
 

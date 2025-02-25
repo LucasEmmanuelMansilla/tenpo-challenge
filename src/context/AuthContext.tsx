@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { setClientToken } from "../services/api";
+import { useAuthStore } from "../stores/authStore";
+import { Token } from "../types";
 
 interface AuthContextType {
   token: string | null;
@@ -11,18 +13,27 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
+  const {saveToken, removeToken, token: tokenStore} = useAuthStore((state: Token) => state)
 
   const login = (token: string) => {
+    saveToken(token);
     setToken(token);
   };
 
   const logout = () => {
+    removeToken();
     setToken(null);
   };
 
   useEffect(() => {
     setClientToken(token || '');
   }, [token])
+
+  useEffect(() => {
+    if (!tokenStore) return
+    setToken(tokenStore);
+  }, [tokenStore])
+
 
   return (
     <AuthContext.Provider value={{ token, login, logout }}>
