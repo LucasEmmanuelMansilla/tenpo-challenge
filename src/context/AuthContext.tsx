@@ -25,15 +25,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setToken(null);
   };
 
-  useEffect(() => {
-    setClientToken(token || '');
-  }, [token])
-
+  
   useEffect(() => {
     if (!tokenStore) return
     setToken(tokenStore);
   }, [tokenStore])
-
+  
+  useEffect(() => {
+    setClientToken(token || '');
+  }, [token])
 
   return (
     <AuthContext.Provider value={{ token, login, logout }}>
