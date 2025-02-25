@@ -11,12 +11,21 @@ function App() {
     return token ? children : <Navigate to="/login" replace />;
   };
 
+  const PublicRoute = ({ children }: { children: JSX.Element }) => {
+    return !token ? children : <Navigate to="/home" replace />;
+  }
+
 
   return (
     <div className="flex-1 flex items-center justify-center">
       <Router>
         <Routes>
-          <Route path="/login" element={token ? <Navigate to="/home" replace /> : <LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>} />
           <Route
             path="/home"
             element={
